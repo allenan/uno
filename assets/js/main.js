@@ -4,6 +4,7 @@ $(document).ready(function() {
 
   $('a.blog-button').click(function() {
     if ($('.panel-cover').hasClass('panel-cover--collapsed')) return;
+    $('.content-wrapper').show();
     currentWidth = $('.panel-cover').width();
     if (currentWidth < 960) {
       $('.panel-cover').addClass('panel-cover--collapsed');
@@ -16,6 +17,10 @@ $(document).ready(function() {
 
   if (window.location.hash && window.location.hash == "#blog") {
     $('.panel-cover').addClass('panel-cover--collapsed');
+  }
+
+  if (window.location.pathname == "/" && !window.location.hash) {
+    $('.content-wrapper').hide();
   }
 
   if (window.location.pathname.substring(0, 5) == "/tag/") {
